@@ -1,11 +1,11 @@
 <?php
 /**
- * LogErrors v0.1.0
+ * LogErrors v0.2.0
  *
  * This plugin logs not found (404) page errors to the data folder so it can be read with Data Plugin
  *
  * @package     Log Errors
- * @version     0.1.0
+ * @version     0.2.0
  * @link        <https://github.com/hugoaf/grav-plugin-logerrors>
  * @author      Hugo Avila <hugoavila@sitioi.com>
  * @copyright   2015, Hugo Avila
@@ -81,10 +81,10 @@ class LogerrorsPlugin extends Plugin
         $file->save(Yaml::dump($data));
 
         //
-        //  Creates a file an update a summary for recurrent notfound errors
+        //  Creates a file and update summary for recurrent notfound errors
         //
         $urls = array_column($data, 'url');
-        // group and count items by url and create a summary array
+        asort($urls);
         $summary    = array();
         $prev_value = array('url' => null, 'count' => null);
         foreach ($urls as $val) {
@@ -93,9 +93,15 @@ class LogerrorsPlugin extends Plugin
                 $prev_value = array('url' => $val, 'count' => 0);
                 $summary[]  = &$prev_value;
             }
-
             $prev_value['count']++;
         }
+
+        $count = array();
+        foreach ($summary as $key => $row) {
+            $count[$key] = $row['count'];
+        }
+
+        array_multisort($count, SORT_DESC, $summary);
 
         // create file and save summary
         $fullSummaryFileName = $path . DS . $folder . DS . 'summary_' . $filename;

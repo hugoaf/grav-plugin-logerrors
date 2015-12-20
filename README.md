@@ -2,11 +2,6 @@
 
 `Logerrors` is a [Grav](http://github.com/getgrav/grav) Plugin and records not found 404 errors to data folder.
 
-> IMPORTANT!!! This plugin is currently in development as is to be considered a **beta release**.  As such, use this in a production environment **at your own risk!**.
-
-
-> NOTICE!!! Not yet available in Grav Package Manager, **GPM cli commands will not work**.
-
 
 # Installation
 

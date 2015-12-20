@@ -1,6 +1,6 @@
 <?php
 /**
- * LogErrors v0.2.0
+ * LogErrors v1.0.0
  *
  * This plugin logs not found (404) page errors to the data folder so it can be read with Data Plugin
  *

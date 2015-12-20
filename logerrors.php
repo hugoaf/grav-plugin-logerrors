@@ -5,7 +5,7 @@
  * This plugin logs not found (404) page errors to the data folder so it can be read with Data Plugin
  *
  * @package     Log Errors
- * @version     0.2.0
+ * @version     1.0.0
  * @link        <https://github.com/hugoaf/grav-plugin-logerrors>
  * @author      Hugo Avila <hugoavila@sitioi.com>
  * @copyright   2015, Hugo Avila
@@ -49,7 +49,6 @@ class LogerrorsPlugin extends Plugin
     protected function savelog($url)
     {
 
-        //$format =!empty($params['dateformat']) ? $params['dateformat'] : 'Ymd-His-u';
         $params       = $this->config->get('plugins.logerrors');
         $filename     = !empty($params['filename']) ? trim($params['filename']) : 'notfound.txt';
         $folder       = !empty($params['filename']) ? trim($params['folder']) : 'logerrors';

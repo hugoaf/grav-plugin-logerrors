@@ -51,7 +51,7 @@ class LogerrorsPlugin extends Plugin
 
         $params       = $this->config->get('plugins.logerrors');
         $filename     = !empty($params['filename']) ? trim($params['filename']) : 'notfound.txt';
-        $folder       = !empty($params['filename']) ? trim($params['folder']) : 'logerrors';
+        $folder       = !empty($params['folder']) ? trim($params['folder']) : 'logerrors';
         $locator      = $this->grav['locator'];
         $path         = $locator->findResource('user://data', true);
         $fullFileName = $path . DS . $folder . DS . $filename;

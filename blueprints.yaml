@@ -1,5 +1,5 @@
 name: Log Errors
-version: 1.0.0
+version: 1.0.1
 description: Records 404 errors in data folder
 icon: edit
 author:

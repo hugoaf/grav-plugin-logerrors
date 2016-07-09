@@ -1,11 +1,11 @@
 <?php
 /**
- * LogErrors v1.0.0
+ * LogErrors v1.0.1
  *
  * This plugin logs not found (404) page errors to the data folder so it can be read with Data Plugin
  *
  * @package     Log Errors
- * @version     1.0.0
+ * @version     1.0.1
  * @link        <https://github.com/hugoaf/grav-plugin-logerrors>
  * @author      Hugo Avila <hugoavila@sitioi.com>
  * @copyright   2015, Hugo Avila
@@ -27,7 +27,7 @@ class LogerrorsPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onPageNotFound' => ['onPageNotFound', 0],
+            'onPageNotFound' => ['onPageNotFound', 1],
         ];
     }
 
@@ -51,7 +51,7 @@ class LogerrorsPlugin extends Plugin
 
         $params       = $this->config->get('plugins.logerrors');
         $filename     = !empty($params['filename']) ? trim($params['filename']) : 'notfound.txt';
-        $folder       = !empty($params['filename']) ? trim($params['folder']) : 'logerrors';
+        $folder       = !empty($params['folder']) ? trim($params['folder']) : 'logerrors';
         $locator      = $this->grav['locator'];
         $path         = $locator->findResource('user://data', true);
         $fullFileName = $path . DS . $folder . DS . $filename;
